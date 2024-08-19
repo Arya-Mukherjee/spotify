@@ -18,7 +18,7 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`/${folder}/`)
+    let a = await fetch(`Arya-Mukherjee.github.io/spotify/${folder}/`)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -27,7 +27,7 @@ async function getSongs(folder) {
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1]);
+            songs.push(element.href.split(`Arya-Mukherjee.github.io/spotify/${folder}/`)[1]);
 
         }
     }
@@ -79,7 +79,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`);
+    let a = await fetch(`Arya-Mukherjee.github.io/spotify/songs/`);
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -89,10 +89,10 @@ async function displayAlbums() {
 
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
-        if (e.href.includes("/songs/")) {
+        if (e.href.includes("Arya-Mukherjee.github.io/spotify/songs/")) {
             let folder = e.href.split("/").slice(-1)[0];
             //get the metadata of each folder
-            let a = await fetch(`/songs/${folder}/info.json`);
+            let a = await fetch(`Arya-Mukherjee.github.io/spotify//songs/${folder}/info.json`);
             let response = await a.json();
             console.log(response)
 
@@ -105,7 +105,7 @@ async function displayAlbums() {
             </div>
             
 
-            <img src="/songs/${folder}/cover.jpg" alt="">
+            <img src="Arya-Mukherjee.github.io/spotify/songs/${folder}/cover.jpg" alt="">
             <h2>${response.title}</h2>
             <p>${response.description}</p>
         </div>`
